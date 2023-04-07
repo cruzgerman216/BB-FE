@@ -1,0 +1,36 @@
+<!-- header -->
+<header
+  *ngIf="profileUser && profileBlogs.length != 0"
+  style="background-image: url('{{ profileBlogs[0].image_path }}')"
+>
+  <div class="position-relative">
+    <h2 class="text-white text-center">{{ profileBlogs[0].title }}</h2>
+    <h3 class="text-white text-center">{{ profileBlogs[0].sub_title }}</h3>
+  </div>
+</header>
+
+<h1 class="text-center my-5" *ngIf="profileUser">
+  {{ profileUser.username }} Blogs
+</h1>
+<app-create-blog
+  *ngIf="currentUser && profileUser && currentUser.username === profileUser.username"
+></app-create-blog>
+<!-- list of blogs -->
+<div *ngIf="profileUser && profileBlogs" class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7">
+      <div
+        style="cursor: pointer"
+        *ngFor="let blog of profileBlogs"
+        routerLink="/blogs/{{ blog.id }}"
+      >
+        <div class="post-preview">
+          <h2>{{ blog.title }}</h2>
+          <h3>{{ blog.sub_title }}</h3>
+          <p>Posted by on September 24, 2022</p>
+        </div>
+        <hr class="my-4" />
+      </div>
+    </div>
+  </div>
+</div>

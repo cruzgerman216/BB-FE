@@ -1,0 +1,17 @@
+header {
+  margin-bottom: 3rem;
+  padding: 12.5rem 0;
+  background-size: cover;
+  position: relative;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  background-color: black;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 50%;
+}
